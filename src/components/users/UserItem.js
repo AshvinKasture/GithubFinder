@@ -7,6 +7,7 @@ import {
   Divider,
   Button,
 } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 const UserItem = ({ user: { login, avatar_url } }) => {
   return (
@@ -17,7 +18,9 @@ const UserItem = ({ user: { login, avatar_url } }) => {
             <Image src={avatar_url} size='tiny' circular centered />
             <Header> {login}</Header>
             <Divider />
-            <Button secondary>More</Button>
+            <Button secondary as={Link} to={`/user/${login}`}>
+              More
+            </Button>
           </Grid.Column>
         </Grid>
       </Segment>
